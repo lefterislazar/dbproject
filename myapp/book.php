@@ -27,7 +27,7 @@ $book_ext_data->execute();
 $book_ext_array = ($book_ext_data->get_result())->fetch_assoc();
 } else {
 $book_ext_data = $mysqli->prepare("SELECT * FROM book_full_data_searchable WHERE ISBN = ?;");
-$book_ext_data->bind_param("ii",$ISBN,$_SESSION['school_id']);
+$book_ext_data->bind_param("i",$ISBN);
 $book_ext_data->execute();
 $book_ext_array = ($book_ext_data->get_result())->fetch_assoc();
 }
