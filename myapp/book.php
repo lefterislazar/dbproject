@@ -432,7 +432,7 @@ if($allow_review) {
 //Allow review only if book has been rented
 $have_rented =  $mysqli->prepare("SELECT * FROM all_rent WHERE
 renting_user_id = ? AND ISBN = ?;");
-$have_rented->bind_param("ii",$_SESSION['renting_user_id'],$ISBN);
+$have_rented->bind_param("ii",$_SESSION['user_id'],$ISBN);
 $have_rented->execute();
 $have_rented_result = $have_rented->get_result();
 $have_rented_array = $have_rented_result->fetch_assoc();
