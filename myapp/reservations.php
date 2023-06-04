@@ -82,7 +82,7 @@ if($admin) { ?>
 foreach ($existing_reservers_result as $row) {?>
 <tr>
   <td>
-  <form action="./reserv_to_active.php" method="post">
+  <form action="./reserv_to_active_handle.php" method="post">
 	<?php
 		if($row['reserv_order'] <= $row['available_copies']) {
 		if($row['late'] == 1) {
