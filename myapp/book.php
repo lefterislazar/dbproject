@@ -435,8 +435,9 @@ renting_user_id = ? AND ISBN = ?;");
 $have_rented->bind_param("ii",$_SESSION['renting_user_id'],$ISBN);
 $have_rented->execute();
 $have_rented_result = $have_rented->get_result();
+$have_rented_array = $have_rented_result->fetch_assoc();
 
-if (!empty($have_rented_result)) {?>
+if (!empty($have_rented_array)) {?>
 <h3>Αφήστε την Κριτική σας</h3>
 <form action="./review_post_handle.php" method="post">
   <ul>
