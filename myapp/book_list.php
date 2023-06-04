@@ -137,7 +137,11 @@ LEFT JOIN writer w ON wb.writer_id = w.writer_id ";
 // Execute Query
 	if(!$c_admin) {
 	$query_str = "SELECT * FROM book_full_data_searchable WHERE school_id = ?";
-  	$result = $mysqli->query($query_str);
+  	  $result = $mysqli->prepare($query_str);
+	$result->bind_param('i',$_SESSION['school_id']);
+	$result->execute();
+	$result = $result->get_result();
+
   } else {
 	$query_str = "SELECT * FROM book_full_data";
   $result = $mysqli->query($query_str);
