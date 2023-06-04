@@ -15,7 +15,7 @@ if($_SESSION['role']=='STUDENT' OR $_SESSION['role']=='TEACHER') {
 	$admin = false;
 	}
 
-if(!$admin AND isset($_GET['edit'])) {
+if(!$admin and !$c_admin AND isset($_GET['edit'])) {
 	header('Location: ./main.php');
 	exit();
 }
@@ -210,7 +210,7 @@ if(!isset($_GET['edit']) or $_GET['edit']==0) { ?>
 <?php  } ?>
 
 <?php
-if($admin and !isset($_GET['edit'])) {?>
+if($admin or $c_admin and !isset($_GET['edit'])) {?>
 <form actiom="./book.php" method="get">
 	<input type="hidden" name="ISBN" value="<?php echo $ISBN;?>"/>
 <input type="hidden" name="edit" value="1"/>
